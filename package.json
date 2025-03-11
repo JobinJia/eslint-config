@@ -1,5 +1,5 @@
 {
-  "name": "@jobin/eslint-config",
+  "name": "@jobinjia/eslint-config",
   "type": "module",
   "version": "1.0.0",
   "packageManager": "pnpm@10.6.1",
