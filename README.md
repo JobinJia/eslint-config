@@ -1,4 +1,4 @@
-# @antfu/eslint-config
+# Fork with [@antfu/eslint-config](@antfu/eslint-config)
 
 [![npm](https://img.shields.io/npm/v/@antfu/eslint-config?color=444&label=)](https://npmjs.com/package/@antfu/eslint-config) [![code style](https://antfu.me/badge-code-style.svg)](https://github.com/antfu/eslint-config)
 

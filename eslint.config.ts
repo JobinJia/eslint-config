@@ -1,8 +1,8 @@
 import styleMigrate from '@stylistic/eslint-plugin-migrate'
 
-import { antfu } from './src'
+import { jobin } from './src'
 
-export default antfu(
+export default jobin(
   {
     vue: true,
     react: true,

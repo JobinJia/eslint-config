@@ -9,10 +9,10 @@ import { run } from './run'
 
 function header(): void {
   console.log('\n')
-  p.intro(`${c.green`@antfu/eslint-config `}${c.dim`v${pkgJson.version}`}`)
+  p.intro(`${c.green`@jobin/eslint-config `}${c.dim`v${pkgJson.version}`}`)
 }
 
-const cli = cac('@antfu/eslint-config')
+const cli = cac('@jobin/eslint-config')
 
 cli
   .command('', 'Run the initialization or migration')
@@ -23,8 +23,7 @@ cli
     header()
     try {
       await run(args)
-    }
-    catch (error) {
+    } catch (error) {
       p.log.error(c.inverse.red(' Failed to migrate '))
       p.log.error(c.red`✘ ${String(error)}`)
       process.exit(1)

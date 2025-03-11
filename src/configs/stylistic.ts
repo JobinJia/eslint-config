@@ -57,13 +57,15 @@ export async function stylistic(
               curly: ['error', 'all'],
             }
           : {
-              'antfu/curly': 'error',
+              // 'antfu/curly': 'error',
               'antfu/if-newline': 'error',
               'antfu/top-level-function': 'error',
             }
         ),
 
+        'style/brace-style': ['error', '1tbs', { allowSingleLine: false }],
         'style/generator-star-spacing': ['error', { after: true, before: false }],
+
         'style/yield-star-spacing': ['error', { after: true, before: false }],
 
         ...overrides,

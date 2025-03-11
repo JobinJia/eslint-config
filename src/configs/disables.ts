@@ -6,32 +6,32 @@ export async function disables(): Promise<TypedFlatConfigItem[]> {
   return [
     {
       files: [`**/scripts/${GLOB_SRC}`],
-      name: 'antfu/disables/scripts',
+      name: 'jobin/disables/scripts',
       rules: {
-        'antfu/no-top-level-await': 'off',
+        'jobin/no-top-level-await': 'off',
         'no-console': 'off',
         'ts/explicit-function-return-type': 'off',
       },
     },
     {
       files: [`**/cli/${GLOB_SRC}`, `**/cli.${GLOB_SRC_EXT}`],
-      name: 'antfu/disables/cli',
+      name: 'jobin/disables/cli',
       rules: {
-        'antfu/no-top-level-await': 'off',
+        'jobin/no-top-level-await': 'off',
         'no-console': 'off',
       },
     },
     {
       files: ['**/bin/**/*', `**/bin.${GLOB_SRC_EXT}`],
-      name: 'antfu/disables/bin',
+      name: 'jobin/disables/bin',
       rules: {
-        'antfu/no-import-dist': 'off',
-        'antfu/no-import-node-modules-by-path': 'off',
+        'jobin/no-import-dist': 'off',
+        'jobin/no-import-node-modules-by-path': 'off',
       },
     },
     {
       files: ['**/*.d.?([cm])ts'],
-      name: 'antfu/disables/dts',
+      name: 'jobin/disables/dts',
       rules: {
         'eslint-comments/no-unlimited-disable': 'off',
         'import/no-duplicates': 'off',
@@ -41,16 +41,16 @@ export async function disables(): Promise<TypedFlatConfigItem[]> {
     },
     {
       files: ['**/*.js', '**/*.cjs'],
-      name: 'antfu/disables/cjs',
+      name: 'jobin/disables/cjs',
       rules: {
         'ts/no-require-imports': 'off',
       },
     },
     {
       files: [`**/*.config.${GLOB_SRC_EXT}`, `**/*.config.*.${GLOB_SRC_EXT}`],
-      name: 'antfu/disables/config-files',
+      name: 'jobin/disables/config-files',
       rules: {
-        'antfu/no-top-level-await': 'off',
+        'jobin/no-top-level-await': 'off',
         'no-console': 'off',
         'ts/explicit-function-return-type': 'off',
       },

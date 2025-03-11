@@ -12,7 +12,7 @@ export async function pnpm(): Promise<TypedFlatConfigItem[]> {
       languageOptions: {
         parser: await interopDefault(import('jsonc-eslint-parser')),
       },
-      name: 'antfu/pnpm/rules',
+      name: 'jobin/pnpm/rules',
       plugins: {
         pnpm: await interopDefault(import('eslint-plugin-pnpm')),
       },

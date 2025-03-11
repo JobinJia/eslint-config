@@ -36,25 +36,25 @@ export async function javascript(
       linterOptions: {
         reportUnusedDisableDirectives: true,
       },
-      name: 'antfu/javascript/setup',
+      name: 'jobin/javascript/setup',
     },
     {
-      name: 'antfu/javascript/rules',
+      name: 'jobin/javascript/rules',
       plugins: {
-        'antfu': pluginAntfu,
+        'jobin': pluginAntfu,
         'unused-imports': pluginUnusedImports,
       },
       rules: {
         'accessor-pairs': ['error', { enforceForClassMembers: true, setWithoutGet: true }],
 
-        'antfu/no-top-level-await': 'error',
-
         'array-callback-return': 'error',
+
         'block-scoped-var': 'error',
         'constructor-super': 'error',
         'default-case-last': 'error',
         'dot-notation': ['error', { allowKeywords: true }],
         'eqeqeq': ['error', 'smart'],
+        'jobin/no-top-level-await': 'error',
         'new-cap': ['error', { capIsNew: false, newIsCap: true, properties: true }],
         'no-alert': 'error',
         'no-array-constructor': 'error',

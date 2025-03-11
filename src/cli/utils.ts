@@ -4,8 +4,7 @@ export function isGitClean(): boolean {
   try {
     execSync('git diff-index --quiet HEAD --')
     return true
-  }
-  catch {
+  } catch {
     return false
   }
 }
@@ -15,10 +14,18 @@ export function getEslintConfigContent(
   additionalConfigs?: string[],
 ): string {
   return `
-import antfu from '@antfu/eslint-config'
+import jobin from '@jobin/eslint-config'
 
-export default antfu({
+export default jobin({
 ${mainConfig}
 }${additionalConfigs?.map(config => `,{\n${config}\n}`)})
 `.trimStart()
+}
+
+export function ttest(a: boolean): string {
+  if (a) {
+    return 'a'
+  } else {
+    return 'b'
+  }
 }
