@@ -2,7 +2,7 @@
   "name": "@jobinjia/eslint-config",
   "type": "module",
   "version": "0.0.4",
-  "packageManager": "pnpm@10.6.3",
+  "packageManager": "pnpm@10.12.4",
   "description": "Anthony's ESLint config",
   "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
   "license": "MIT",
@@ -29,13 +29,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "nr typegen && tsup --clean --dts",
-    "stub": "tsup",
+    "build": "nr gen && tsdown --clean --dts",
+    "stub": "tsdown",
     "dev": "npx @eslint/config-inspector --config eslint.config.ts",
     "build:inspector": "pnpm build && npx @eslint/config-inspector build",
-    "watch": "tsup --watch",
+    "watch": "tsdown --watch",
     "lint": "eslint",
-    "typegen": "tsx scripts/typegen.ts",
+    "gen": "tsx scripts/typegen.ts && tsx scripts/versiongen.ts",
     "prepack": "nr build",
     "release": "bumpp && pnpm publish",
     "test": "vitest",
@@ -43,17 +43,18 @@
     "prepare": "simple-git-hooks"
   },
   "peerDependencies": {
-    "@eslint-react/eslint-plugin": "^1.19.0",
+    "@eslint-react/eslint-plugin": "^1.38.4",
     "@prettier/plugin-xml": "^3.4.1",
     "@unocss/eslint-plugin": ">=0.50.0",
     "astro-eslint-parser": "^1.0.2",
     "eslint": "^9.10.0",
     "eslint-plugin-astro": "^1.2.0",
     "eslint-plugin-format": ">=0.1.0",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.4",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
     "eslint-plugin-solid": "^0.14.3",
     "eslint-plugin-svelte": ">=2.35.1",
+    "eslint-plugin-vuejs-accessibility": "^2.4.1",
     "prettier-plugin-astro": "^0.14.0",
     "prettier-plugin-slidev": "^1.0.5",
     "svelte-eslint-parser": ">=0.37.0"
@@ -89,6 +90,9 @@
     "eslint-plugin-svelte": {
       "optional": true
     },
+    "eslint-plugin-vuejs-accessibility": {
+      "optional": true
+    },
     "prettier-plugin-astro": {
       "optional": true
     },
@@ -115,7 +119,7 @@
     "eslint-merge-processors": "catalog:prod",
     "eslint-plugin-antfu": "catalog:prod",
     "eslint-plugin-command": "catalog:prod",
-    "eslint-plugin-import-x": "catalog:prod",
+    "eslint-plugin-import-lite": "catalog:prod",
     "eslint-plugin-jsdoc": "catalog:prod",
     "eslint-plugin-jsonc": "catalog:prod",
     "eslint-plugin-n": "catalog:prod",
@@ -143,7 +147,6 @@
     "@eslint-react/eslint-plugin": "catalog:peer",
     "@eslint/config-inspector": "catalog:dev",
     "@prettier/plugin-xml": "catalog:peer",
-    "@stylistic/eslint-plugin-migrate": "catalog:dev",
     "@types/node": "catalog:dev",
     "@unocss/eslint-plugin": "catalog:peer",
     "astro-eslint-parser": "catalog:peer",
@@ -155,17 +158,19 @@
     "eslint-plugin-react-refresh": "catalog:peer",
     "eslint-plugin-solid": "catalog:peer",
     "eslint-plugin-svelte": "catalog:peer",
+    "eslint-plugin-vuejs-accessibility": "catalog:peer",
     "eslint-typegen": "catalog:dev",
     "execa": "catalog:dev",
     "jiti": "catalog:dev",
     "lint-staged": "catalog:dev",
+    "pnpm-workspace-yaml": "catalog:dev",
     "prettier-plugin-astro": "catalog:peer",
     "prettier-plugin-slidev": "catalog:peer",
     "simple-git-hooks": "catalog:dev",
     "svelte": "catalog:peer",
     "svelte-eslint-parser": "catalog:peer",
     "tinyglobby": "catalog:dev",
-    "tsup": "catalog:dev",
+    "tsdown": "catalog:dev",
     "tsx": "catalog:dev",
     "typescript": "catalog:dev",
     "vitest": "catalog:dev",
@@ -176,8 +181,5 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

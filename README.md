@@ -28,6 +28,9 @@
 >
 > If you are using this config directly, I suggest you **review the changes every time you update**. Or if you want more control over the rules, always feel free to fork it. Thanks!
 
+> [!TIP]
+> If you are interested in the tooling and the philosophy behind this config, I gave a talk about ESLint flat config at [JSNation 2024 - ESLint One for All Made Easy](https://gitnation.com/contents/eslint-one-for-all-made-easy), slides are [here](https://talks.antfu.me/2024/jsnation).
+
 ## Usage
 
 ### Starter Wizard
@@ -381,7 +384,7 @@ Since flat config requires us to explicitly provide the plugin names (instead of
 
 | New Prefix | Original Prefix        | Source Plugin                                                                              |
 | ---------- | ---------------------- | ------------------------------------------------------------------------------------------ |
-| `import/*` | `import-x/*`           | [eslint-plugin-import-x](https://github.com/un-es/eslint-plugin-import-x)                  |
+| `import/*` | `import-lite/*`        | [eslint-plugin-import-lite](https://github.com/9romise/eslint-plugin-import-lite)          |
 | `node/*`   | `n/*`                  | [eslint-plugin-n](https://github.com/eslint-community/eslint-plugin-n)                     |
 | `yaml/*`   | `yml/*`                | [eslint-plugin-yml](https://github.com/ota-meshi/eslint-plugin-yml)                        |
 | `ts/*`     | `@typescript-eslint/*` | [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint) |
@@ -495,10 +498,10 @@ export default antfu()
   )
   // overrides any named configs
   .override(
-    'antfu/imports',
+    'antfu/stylistic/rules',
     {
       rules: {
-        'import/order': ['error', { 'newlines-between': 'always' }],
+        'style/generator-star-spacing': ['error', { after: true, before: false }],
       }
     }
   )
@@ -539,6 +542,27 @@ export default antfu({
 ```
 
 As it's in maintenance mode, we only accept bug fixes for Vue 2. It might also be removed in the future when `eslint-plugin-vue` drops support for Vue 2. We recommend upgrading to Vue 3 if possible.
+
+#### Vue Accessibility
+
+To enable Vue accessibility support, you need to explicitly turn it on:
+
+```js
+// eslint.config.js
+import antfu from '@antfu/eslint-config'
+
+export default antfu({
+  vue: {
+    a11y: true
+  },
+})
+```
+
+Running `npx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
+
+```bash
+npm i -D eslint-plugin-vuejs-accessibility
+```
 
 ### Optional Configs
 

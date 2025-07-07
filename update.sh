@@ -23,10 +23,10 @@ git fetch upstream
 echo "🌿 切换到分支：$BASE_BRANCH"
 git checkout "$BASE_BRANCH"
 
-echo "📦 Rebase 到 upstream/$BASE_BRANCH"
-git rebase upstream/"$BASE_BRANCH"
+echo "📦 Merge 到 upstream/$BASE_BRANCH"
+git merge upstream/"$BASE_BRANCH"
 
 echo "🚀 推送到 origin/$BASE_BRANCH"
-git push -f origin "$BASE_BRANCH"
+git push origin "$BASE_BRANCH"
 
 echo "✅ 同步完成！你的 Fork 已是最新。"

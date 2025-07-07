@@ -8,7 +8,7 @@ import type { VendoredPrettierOptions } from './vender/prettier-types'
 
 export type Awaitable<T> = T | Promise<T>
 
-export type Rules = RuleOptions
+export interface Rules extends RuleOptions {}
 
 export type { ConfigNames }
 
@@ -44,11 +44,19 @@ export interface OptionsVue extends OptionsOverrides {
    * @default 3
    */
   vueVersion?: 2 | 3
+
+  /**
+   * Vue accessibility plugin. Help check a11y issue in `.vue` files upon enabled
+   *
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/
+   * @default false
+   */
+  a11y?: boolean
 }
 
-export type OptionsTypescript =
-  (OptionsTypeScriptWithTypes & OptionsOverrides)
-  | (OptionsTypeScriptParserOptions & OptionsOverrides)
+export type OptionsTypescript
+  = (OptionsTypeScriptWithTypes & OptionsOverrides)
+    | (OptionsTypeScriptParserOptions & OptionsOverrides)
 
 export interface OptionsFormatters {
   /**
@@ -134,7 +142,7 @@ export interface OptionsComponentExts {
   componentExts?: string[]
 }
 
-export interface OptionsUnicorn {
+export interface OptionsUnicorn extends OptionsOverrides {
   /**
    * Include all rules recommended by `eslint-plugin-unicorn`, instead of only ones picked by Anthony.
    *
@@ -277,6 +285,13 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
   unicorn?: boolean | OptionsUnicorn
 
   /**
+   * Options for eslint-plugin-import-lite.
+   *
+   * @default true
+   */
+  imports?: boolean | OptionsOverrides
+
+  /**
    * Enable test support.
    *
    * @default true
@@ -378,7 +393,7 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
    *
    * @default false
    */
-  svelte?: boolean
+  svelte?: boolean | OptionsOverrides
 
   /**
    * Enable unocss rules.
