@@ -1,7 +1,7 @@
 {
   "name": "@jobinjia/eslint-config",
   "type": "module",
-  "version": "5.2.1",
+  "version": "1.0.0",
   "packageManager": "pnpm@10.14.0",
   "description": "Anthony's ESLint config",
   "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
@@ -151,10 +151,10 @@
     "yaml-eslint-parser": "catalog:prod"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "workspace:*",
     "@antfu/ni": "catalog:dev",
     "@eslint-react/eslint-plugin": "catalog:peer",
     "@eslint/config-inspector": "catalog:dev",
+    "@jobinjia/eslint-config": "workspace:*",
     "@next/eslint-plugin-next": "catalog:peer",
     "@prettier/plugin-xml": "catalog:peer",
     "@types/eslint-plugin-jsx-a11y": "catalog:dev",
