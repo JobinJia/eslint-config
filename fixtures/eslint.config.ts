@@ -1,6 +1,6 @@
-import { jobin } from './src'
+import { antfu } from './src'
 
-export default jobin(
+export default antfu(
   {
     vue: {
       a11y: true,
@@ -9,14 +9,10 @@ export default jobin(
     solid: true,
     svelte: true,
     astro: true,
-    nextjs: true,
     typescript: true,
     formatters: true,
     pnpm: true,
     type: 'lib',
-    jsx: {
-      a11y: true,
-    },
   },
   {
     ignores: [

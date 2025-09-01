@@ -16,6 +16,7 @@ import {
   jsonc,
   jsx,
   markdown,
+  nextjs,
   node,
   perfectionist,
   pnpm,
@@ -60,11 +61,13 @@ export const defaultPluginRenaming = {
   '@eslint-react/hooks-extra': 'react-hooks-extra',
   '@eslint-react/naming-convention': 'react-naming-convention',
 
+  '@next/next': 'next',
   '@stylistic': 'style',
   '@typescript-eslint': 'ts',
   'import-lite': 'import',
   'n': 'node',
   'vitest': 'test',
+
   'yml': 'yaml',
 }
 
@@ -89,6 +92,7 @@ export function jobin(
     gitignore: enableGitignore = true,
     imports: enableImports = true,
     jsx: enableJsx = true,
+    nextjs: enableNextjs = false,
     pnpm: enableCatalogs = false, // TODO: smart detect
     react: enableReact = false,
     regexp: enableRegexp = true,
@@ -115,7 +119,7 @@ export function jobin(
       : {}
 
   if (stylisticOptions && !('jsx' in stylisticOptions))
-    stylisticOptions.jsx = enableJsx
+    stylisticOptions.jsx = typeof enableJsx === 'object' ? true : enableJsx
 
   const configs: Awaitable<TypedFlatConfigItem[]>[] = []
 
@@ -179,7 +183,7 @@ export function jobin(
   }
 
   if (enableJsx) {
-    configs.push(jsx())
+    configs.push(jsx(enableJsx === true ? {} : enableJsx))
   }
 
   if (enableTypeScript) {
@@ -224,6 +228,12 @@ export function jobin(
       ...typescriptOptions,
       overrides: getOverrides(options, 'react'),
       tsconfigPath,
+    }))
+  }
+
+  if (enableNextjs) {
+    configs.push(nextjs({
+      overrides: getOverrides(options, 'nextjs'),
     }))
   }
 
